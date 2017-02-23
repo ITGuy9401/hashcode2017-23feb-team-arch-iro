@@ -11,6 +11,7 @@ public class Endpoint {
 	private List<Request> requests = new ArrayList<Request>();
 
 	public Endpoint(Long id, Long datacenterLatencyMs) {
+		super();
 		this.id = id;
 		this.datacenterLatencyMs = datacenterLatencyMs;
 	}

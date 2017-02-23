@@ -7,6 +7,7 @@ public class Connection {
 	private Long latencyMs;
 
 	public Connection(CacheServer cacheServer, Endpoint endpoint, Long latencyMs) {
+		super();
 		setCacheServer(cacheServer);
 		setEndpoint(endpoint);
 		this.latencyMs = latencyMs;

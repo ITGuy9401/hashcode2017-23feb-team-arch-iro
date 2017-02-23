@@ -1,13 +1,15 @@
 package eu.arcangelovicedomini.hashcode.oqr2017.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Video implements Comparable<Video> {
 	private Long id;
 	private Long sizeMb;
-	private List<Request> requests;
+	private List<Request> requests = new ArrayList<Request>();
 
 	public Video(Long id, Long sizeMb) {
+		super();
 		this.id = id;
 		this.sizeMb = sizeMb;
 	}

@@ -10,6 +10,7 @@ public class CacheServer {
 	private List<Connection> connection = new ArrayList<Connection>();
 
 	public CacheServer(Long id, Long sizeMb) {
+		super();
 		this.id = id;
 		this.sizeMb = sizeMb;
 	}

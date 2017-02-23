@@ -7,8 +7,9 @@ public class Request {
 	private Video video;
 
 	public Request(Long requests, Endpoint endpoint, Video video) {
-		this.requests = requests;
-		this.endpoint = endpoint;
+		super();
+		setRequests(requests);
+		setEndpoint(endpoint);
 		this.video = video;
 	}
 
@@ -25,6 +26,7 @@ public class Request {
 	}
 
 	public void setEndpoint(Endpoint endpoint) {
+		endpoint.getRequests().add(this);
 		this.endpoint = endpoint;
 	}
 
@@ -33,6 +35,7 @@ public class Request {
 	}
 
 	public void setVideo(Video video) {
+		video.getRequests().add(this);
 		this.video = video;
 	}
 
