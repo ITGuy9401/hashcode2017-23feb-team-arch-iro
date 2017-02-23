@@ -44,8 +44,11 @@ public class App {
 		}
 
 		String[] lines = fileContent.split("\n");
+		
 		Long lastEndpointLineNum = null;
 		Long lastEndpointConnections = null;
+		int foundEndpoints = 0;
+		
 		for (int i = 0; i < lines.length; i++) {
 			String[] dataset = lines[i].split(" ");
 			if (i == 0) {
@@ -73,6 +76,8 @@ public class App {
 					Long videoSize = Long.parseLong(dataset[videoId.intValue()]);
 					videos.add(new Video(videoId, videoSize));
 				}
+			} else {
+				
 			}
 		}
 	}

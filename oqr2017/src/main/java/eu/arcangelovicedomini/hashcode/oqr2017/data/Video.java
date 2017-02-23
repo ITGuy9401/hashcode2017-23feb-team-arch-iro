@@ -2,7 +2,7 @@ package eu.arcangelovicedomini.hashcode.oqr2017.data;
 
 import java.util.List;
 
-public class Video {
+public class Video implements Comparable<Video> {
 	private Long id;
 	private Long sizeMb;
 	private List<Request> requests;
@@ -34,6 +34,10 @@ public class Video {
 
 	public void setRequests(List<Request> requests) {
 		this.requests = requests;
+	}
+
+	public int compareTo(Video o) {
+		return id.compareTo(o.getId());
 	}
 
 }
