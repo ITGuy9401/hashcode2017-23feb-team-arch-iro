@@ -10,6 +10,7 @@ import org.apache.commons.io.IOUtils;
 import eu.arcangelovicedomini.hashcode.oqr2017.data.CacheServer;
 import eu.arcangelovicedomini.hashcode.oqr2017.data.Connection;
 import eu.arcangelovicedomini.hashcode.oqr2017.data.Endpoint;
+import eu.arcangelovicedomini.hashcode.oqr2017.data.Request;
 import eu.arcangelovicedomini.hashcode.oqr2017.data.Video;
 
 /**
@@ -92,7 +93,10 @@ public class App {
 						Connection c = new Connection(cacheServers.get(Integer.parseInt(dataset[0])), e,
 								Long.parseLong(dataset[1]));
 					}
+					endpoints.add(e);
 				} else {
+					Request r = new Request(Long.parseLong(dataset[2]), endpoints.get(Integer.parseInt(dataset[1])),
+							videos.get(Integer.parseInt(dataset[0])));
 					
 				}
 			}
