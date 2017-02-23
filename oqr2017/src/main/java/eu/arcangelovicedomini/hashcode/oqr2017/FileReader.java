@@ -12,6 +12,7 @@ import eu.arcangelovicedomini.hashcode.oqr2017.data.Connection;
 import eu.arcangelovicedomini.hashcode.oqr2017.data.Endpoint;
 import eu.arcangelovicedomini.hashcode.oqr2017.data.Request;
 import eu.arcangelovicedomini.hashcode.oqr2017.data.Video;
+import eu.arcangelovicedomini.hashcode.oqr2017.utils.FinderUtil;
 
 public class FileReader {
 
@@ -100,6 +101,8 @@ public class FileReader {
 				}
 			}
 		}
+		
+		FinderUtil.initializer(returnData);
 		
 		return returnData;
 	}

@@ -30,6 +30,8 @@ public class App {
 		FileReader reader = new FileReader(inputFile);
 		Data data = reader.processFile();
 		
+		test(data);
+		
 		Output output = new Output();
 		//FIXME valorizzare output
 		FileWriter writer = new FileWriter();

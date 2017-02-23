@@ -1,6 +1,5 @@
 package eu.arcangelovicedomini.hashcode.oqr2017;
 
-import java.io.File;
 import java.io.FileOutputStream;
 
 import eu.arcangelovicedomini.hashcode.oqr2017.FileWriter.Output.ServerInfo;
