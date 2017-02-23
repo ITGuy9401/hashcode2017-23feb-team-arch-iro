@@ -34,7 +34,7 @@ public class FinderUtil {
 		}
 	}
 	
-	public static Long findRequestForVideo(Endpoint e, Video v) {
+	public static Long getRequestsForVideo(Endpoint e, Video v) {
 		return videoRequests.get(e).get(v);
 	}
 	
