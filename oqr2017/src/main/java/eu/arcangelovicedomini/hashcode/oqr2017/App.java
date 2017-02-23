@@ -1,18 +1,6 @@
 package eu.arcangelovicedomini.hashcode.oqr2017;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.commons.io.IOUtils;
-
 import eu.arcangelovicedomini.hashcode.oqr2017.FileReader.Data;
-import eu.arcangelovicedomini.hashcode.oqr2017.data.CacheServer;
-import eu.arcangelovicedomini.hashcode.oqr2017.data.Connection;
-import eu.arcangelovicedomini.hashcode.oqr2017.data.Endpoint;
-import eu.arcangelovicedomini.hashcode.oqr2017.data.Request;
-import eu.arcangelovicedomini.hashcode.oqr2017.data.Video;
 
 /**
  * Hashcode 2017 - Team arch-iro
