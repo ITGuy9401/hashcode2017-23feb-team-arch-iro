@@ -7,7 +7,7 @@ public class CacheServer {
 
 	private Long id;
 	private Long sizeMb;
-	private List<Connection> connection = new ArrayList<Connection>();
+	private List<Connection> connections = new ArrayList<Connection>();
 
 	public CacheServer(Long id, Long sizeMb) {
 		super();
@@ -31,12 +31,12 @@ public class CacheServer {
 		this.sizeMb = sizeMb;
 	}
 
-	public List<Connection> getConnection() {
-		return connection;
+	public List<Connection> getConnections() {
+		return connections;
 	}
 
-	public void setConnection(List<Connection> connection) {
-		this.connection = connection;
+	public void setConnections(List<Connection> connection) {
+		this.connections = connection;
 	}
 
 }

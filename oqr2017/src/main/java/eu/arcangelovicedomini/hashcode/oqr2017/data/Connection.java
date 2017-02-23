@@ -18,7 +18,7 @@ public class Connection {
 	}
 
 	public void setCacheServer(CacheServer cacheServer) {
-		cacheServer.getConnection().add(this);
+		cacheServer.getConnections().add(this);
 		this.cacheServer = cacheServer;
 		
 	}
