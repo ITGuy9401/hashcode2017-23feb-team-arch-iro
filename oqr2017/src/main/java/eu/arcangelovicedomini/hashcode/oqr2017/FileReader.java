@@ -49,7 +49,6 @@ public class FileReader {
 		String[] lines = fileContent.split("\n");
 
 		Long lastEndpointLineNum = null;
-		Long lastEndpointConnections = null;
 		int foundEndpoints = 0;
 
 		for (int i = 0; i < lines.length; i++) {
@@ -87,14 +86,16 @@ public class FileReader {
 					Endpoint e = new Endpoint((long) foundEndpoints++, Long.parseLong(dataset[0]));
 					lastEndpointLineNum = (long) i;
 					Long cachesConnections = Long.parseLong(dataset[1]);
-					while (i <= (lastEndpointLineNum + cachesConnections)) {
+					while (i < (lastEndpointLineNum + cachesConnections)) {
 						dataset = lines[++i].split(" ");
-						Connection c = new Connection(returnData.cacheServers.get(Integer.parseInt(dataset[0])), e,
+						// this will create a new instance that will be automatically linked to related entities
+						new Connection(returnData.cacheServers.get(Integer.parseInt(dataset[0])), e,
 								Long.parseLong(dataset[1]));
 					}
 					returnData.endpoints.add(e);
 				} else {
-					Request r = new Request(Long.parseLong(dataset[2]), returnData.endpoints.get(Integer.parseInt(dataset[1])),
+					// this will create a new instance that will be automatically linked to related entities
+					new Request(Long.parseLong(dataset[2]), returnData.endpoints.get(Integer.parseInt(dataset[1])),
 							returnData.videos.get(Integer.parseInt(dataset[0])));
 				}
 			}
