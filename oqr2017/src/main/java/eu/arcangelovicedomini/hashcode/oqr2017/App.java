@@ -69,6 +69,7 @@ public class App {
 						requestDescriptionsNumber = value;
 					} else if (cacheServersNumber == null) {
 						cacheServersNumber = value;
+						cacheServers = new ArrayList<CacheServer>(value.intValue());
 					} else if (cacheServerCapacityMb == null) {
 						cacheServerCapacityMb = value;
 						for (int j = 0; j < cacheServersNumber.intValue(); j++) {
