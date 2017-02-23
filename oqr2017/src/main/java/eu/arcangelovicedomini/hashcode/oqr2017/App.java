@@ -30,8 +30,6 @@ public class App {
 		FileReader reader = new FileReader(inputFile);
 		Data data = reader.processFile();
 		
-		test(data);
-		
 		Output output = new Output();
 		//FIXME valorizzare output
 		FileWriter writer = new FileWriter();
@@ -39,19 +37,6 @@ public class App {
 			writer.writeFile(output, outputFile);
 		} catch (Throwable th) {
 			throw new RuntimeException("Error while writing file: " + th.getMessage(), th);
-		}
-	}
-	
-	public static void test(Data data) {
-		for(CacheServer c : data.cacheServers) {
-			for (Endpoint e : data.endpoints) {
-				System.out.println("Endpoint " + e.getId() + " server " + c.getId() + " result " + FinderUtil.getLatency(e, c));
-			}
-		}
-		for(Video v : data.videos) {
-			for (Endpoint e : data.endpoints) {
-				System.out.println("Endpoint " + e.getId() + " video " + v.getId() + " result " + FinderUtil.getRequestsForVideo(e, v));
-			}
 		}
 	}
 }
