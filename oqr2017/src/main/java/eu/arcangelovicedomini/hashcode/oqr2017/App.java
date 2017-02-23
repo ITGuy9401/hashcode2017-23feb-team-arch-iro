@@ -97,7 +97,6 @@ public class App {
 				} else {
 					Request r = new Request(Long.parseLong(dataset[2]), endpoints.get(Integer.parseInt(dataset[1])),
 							videos.get(Integer.parseInt(dataset[0])));
-					
 				}
 			}
 		}
