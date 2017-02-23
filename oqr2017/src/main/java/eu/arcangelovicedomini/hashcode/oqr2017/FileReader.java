@@ -102,7 +102,7 @@ public class FileReader {
 			}
 		}
 		
-		FinderUtil.initializer(returnData);
+		FinderUtil.initialize(returnData);
 		
 		return returnData;
 	}

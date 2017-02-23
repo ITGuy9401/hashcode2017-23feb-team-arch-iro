@@ -15,7 +15,7 @@ public class FinderUtil {
 	private static Map<Endpoint, Map<Video, Long>> videoRequests = new HashMap<>();
 	private static Map<Endpoint, Map<CacheServer, Long>> cacheServerLatency = new HashMap<>();
 	
-	public static void initializer(Data data) {
+	public static void initialize(Data data) {
 		for (Endpoint endpoint : data.endpoints) {
 			if (videoRequests.get(endpoint) == null) {
 				videoRequests.put(endpoint, new HashMap<>());
