@@ -12,9 +12,12 @@ import eu.arcangelovicedomini.hashcode.oqr2017.data.Endpoint;
 import eu.arcangelovicedomini.hashcode.oqr2017.data.Video;
 
 /**
+ * Hashcode 2017 - Team arch-iro
+ * 
  * Loader app
  * 
- * @author arch-iro
+ * @author Arcangelo Vicedomini
+ * 
  */
 public class App {
 
