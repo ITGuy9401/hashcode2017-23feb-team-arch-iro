@@ -73,4 +73,8 @@ public class Endpoint {
 	public int hashCode() {
 		return id != null ? id.hashCode() : 0;
 	}
+
+	public Long getLatency(CacheServer cacheServer) {
+		return 1L;
+	}
 }

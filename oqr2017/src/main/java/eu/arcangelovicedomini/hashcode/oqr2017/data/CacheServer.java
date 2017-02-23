@@ -10,7 +10,7 @@ public class CacheServer {
 	private Long id;
 	private Long sizeMb;
 	private List<Connection> connections = new ArrayList<Connection>();
-	private Map<Long, Video> longVideoMap = new HashMap<>();
+	private Map<Long, CacheEntry> longVideoMap = new HashMap<>();
 
 	public CacheServer(Long id, Long sizeMb) {
 		super();
@@ -46,15 +46,15 @@ public class CacheServer {
 		this.connections.add(c);
 	}
 
-	public Video get(Long id) {
+	public CacheEntry get(Long id) {
 		return longVideoMap.get(id);
 	}
 
-	public Video put(Long id, Video video) {
-		return longVideoMap.put(id, video);
+	public CacheEntry put(Long id, Video video, long score) {
+		return longVideoMap.put(video.getId(), new CacheEntry(video, score));
 	}
 
-	public Video remove(Long id) {
+	public CacheEntry remove(Long id) {
 		return longVideoMap.remove(id);
 	}
 }
