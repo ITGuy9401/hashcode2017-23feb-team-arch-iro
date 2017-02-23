@@ -1,13 +1,16 @@
 package eu.arcangelovicedomini.hashcode.oqr2017.data;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CacheServer {
 
 	private Long id;
 	private Long sizeMb;
 	private List<Connection> connections = new ArrayList<Connection>();
+	private Map<Long, Video> longVideoMap = new HashMap<>();
 
 	public CacheServer(Long id, Long sizeMb) {
 		super();
@@ -43,4 +46,15 @@ public class CacheServer {
 		this.connections.add(c);
 	}
 
+	public Video get(Long id) {
+		return longVideoMap.get(id);
+	}
+
+	public Video put(Long id, Video video) {
+		return longVideoMap.put(id, video);
+	}
+
+	public Video remove(Long id) {
+		return longVideoMap.remove(id);
+	}
 }
