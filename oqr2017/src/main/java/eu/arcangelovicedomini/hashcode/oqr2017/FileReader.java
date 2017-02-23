@@ -49,25 +49,25 @@ public class FileReader {
 
 		String[] lines = fileContent.split("\n");
 
-		Long lastEndpointLineNum = null;
+		long lastEndpointLineNum = -1;
 		int foundEndpoints = 0;
 
 		for (int i = 0; i < lines.length; i++) {
 			String[] dataset = lines[i].split(" ");
 			if (i == 0) {
 				for (String data : dataset) {
-					Long value = Long.parseLong(data);
+					long value = Long.parseLong(data);
 					if (returnData.videosNumber == null) {
 						returnData.videosNumber = value;
-						returnData.videos = new ArrayList<Video>(value.intValue());
+						returnData.videos = new ArrayList<Video>((int) value);
 					} else if (returnData.endpointsNumber == null) {
 						returnData.endpointsNumber = value;
-						returnData.endpoints = new ArrayList<Endpoint>(value.intValue());
+						returnData.endpoints = new ArrayList<Endpoint>((int) value);
 					} else if (returnData.requestDescriptionsNumber == null) {
 						returnData.requestDescriptionsNumber = value;
 					} else if (returnData.cacheServersNumber == null) {
 						returnData.cacheServersNumber = value;
-						returnData.cacheServers = new ArrayList<CacheServer>(value.intValue());
+						returnData.cacheServers = new ArrayList<CacheServer>((int) value);
 					} else if (returnData.cacheServerCapacityMb == null) {
 						returnData.cacheServerCapacityMb = value;
 						for (int j = 0; j < returnData.cacheServersNumber.intValue(); j++) {
@@ -78,15 +78,15 @@ public class FileReader {
 					}
 				}
 			} else if (i == 1) {
-				for (Long videoId = 0L; videoId.intValue() < dataset.length; videoId++) {
-					Long videoSize = Long.parseLong(dataset[videoId.intValue()]);
+				for (long videoId = 0L; videoId < dataset.length; videoId++) {
+					long videoSize = Long.parseLong(dataset[(int) videoId]);
 					returnData.videos.add(new Video(videoId, videoSize));
 				}
 			} else {
 				if (foundEndpoints < returnData.endpointsNumber) {
 					Endpoint e = new Endpoint((long) foundEndpoints++, Long.parseLong(dataset[0]));
 					lastEndpointLineNum = (long) i;
-					Long cachesConnections = Long.parseLong(dataset[1]);
+					long cachesConnections = Long.parseLong(dataset[1]);
 					while (i < (lastEndpointLineNum + cachesConnections)) {
 						dataset = lines[++i].split(" ");
 						// this will create a new instance that will be automatically linked to related entities
