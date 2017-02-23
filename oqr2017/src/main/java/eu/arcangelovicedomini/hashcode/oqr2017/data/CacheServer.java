@@ -46,15 +46,15 @@ public class CacheServer {
 		this.connections.add(c);
 	}
 
-	public CacheEntry get(Long id) {
+	public CacheEntry getCacheEntry(Long id) {
 		return longVideoMap.get(id);
 	}
 
-	public CacheEntry put(Long id, Video video, long score) {
+	public CacheEntry putCacheEntry(Long id, Video video, long score) {
 		return longVideoMap.put(video.getId(), new CacheEntry(video, score));
 	}
 
-	public CacheEntry remove(Long id) {
+	public CacheEntry removeCacheEntry(Long id) {
 		return longVideoMap.remove(id);
 	}
 }
