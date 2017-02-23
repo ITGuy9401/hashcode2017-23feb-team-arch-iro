@@ -1,9 +1,13 @@
 package eu.arcangelovicedomini.hashcode.oqr2017.data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CacheServer {
 
 	private Long id;
 	private Long sizeMb;
+	private List<Connection> connection = new ArrayList<Connection>();
 
 	public CacheServer(Long id, Long sizeMb) {
 		this.id = id;
@@ -24,6 +28,14 @@ public class CacheServer {
 
 	public void setSizeMb(Long sizeMb) {
 		this.sizeMb = sizeMb;
+	}
+
+	public List<Connection> getConnection() {
+		return connection;
+	}
+
+	public void setConnection(List<Connection> connection) {
+		this.connection = connection;
 	}
 
 }

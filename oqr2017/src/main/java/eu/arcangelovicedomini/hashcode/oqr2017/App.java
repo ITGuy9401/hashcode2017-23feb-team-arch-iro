@@ -8,6 +8,7 @@ import java.util.List;
 import org.apache.commons.io.IOUtils;
 
 import eu.arcangelovicedomini.hashcode.oqr2017.data.CacheServer;
+import eu.arcangelovicedomini.hashcode.oqr2017.data.Connection;
 import eu.arcangelovicedomini.hashcode.oqr2017.data.Endpoint;
 import eu.arcangelovicedomini.hashcode.oqr2017.data.Video;
 
@@ -47,11 +48,11 @@ public class App {
 		}
 
 		String[] lines = fileContent.split("\n");
-		
+
 		Long lastEndpointLineNum = null;
 		Long lastEndpointConnections = null;
 		int foundEndpoints = 0;
-		
+
 		for (int i = 0; i < lines.length; i++) {
 			String[] dataset = lines[i].split(" ");
 			if (i == 0) {
@@ -67,9 +68,11 @@ public class App {
 						requestDescriptionsNumber = value;
 					} else if (cacheServersNumber == null) {
 						cacheServersNumber = value;
-						cacheServers = new ArrayList<CacheServer>(value.intValue());
 					} else if (cacheServerCapacityMb == null) {
 						cacheServerCapacityMb = value;
+						for (int j = 0; j < cacheServersNumber.intValue(); j++) {
+							cacheServers.add(new CacheServer((long) j, cacheServerCapacityMb));
+						}
 					} else {
 						throw new IllegalArgumentException("Too many argument for line one of the file");
 					}
@@ -80,7 +83,18 @@ public class App {
 					videos.add(new Video(videoId, videoSize));
 				}
 			} else {
-				
+				if (foundEndpoints < endpointsNumber) {
+					Endpoint e = new Endpoint((long) foundEndpoints++, Long.parseLong(dataset[0]));
+					lastEndpointLineNum = (long) i;
+					Long cachesConnections = Long.parseLong(dataset[1]);
+					while (i <= (lastEndpointLineNum + cachesConnections)) {
+						dataset = lines[++i].split(" ");
+						Connection c = new Connection(cacheServers.get(Integer.parseInt(dataset[0])), e,
+								Long.parseLong(dataset[1]));
+					}
+				} else {
+
+				}
 			}
 		}
 	}

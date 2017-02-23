@@ -1,13 +1,14 @@
 package eu.arcangelovicedomini.hashcode.oqr2017.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Endpoint {
 
 	private Long id;
 	private Long datacenterLatencyMs;
-	private List<Connection> cacheConnections;
-	private List<Request> requests;
+	private List<Connection> cacheConnections = new ArrayList<Connection>();
+	private List<Request> requests = new ArrayList<Request>();
 
 	public Endpoint(Long id, Long datacenterLatencyMs) {
 		this.id = id;

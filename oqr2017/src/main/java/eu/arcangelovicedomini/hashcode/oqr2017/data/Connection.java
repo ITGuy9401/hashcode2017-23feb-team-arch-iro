@@ -7,8 +7,8 @@ public class Connection {
 	private Long latencyMs;
 
 	public Connection(CacheServer cacheServer, Endpoint endpoint, Long latencyMs) {
-		this.cacheServer = cacheServer;
-		this.endpoint = endpoint;
+		setCacheServer(cacheServer);
+		setEndpoint(endpoint);
 		this.latencyMs = latencyMs;
 	}
 
@@ -17,7 +17,9 @@ public class Connection {
 	}
 
 	public void setCacheServer(CacheServer cacheServer) {
+		cacheServer.getConnection().add(this);
 		this.cacheServer = cacheServer;
+		
 	}
 
 	public Endpoint getEndpoint() {
@@ -25,6 +27,7 @@ public class Connection {
 	}
 
 	public void setEndpoint(Endpoint endpoint) {
+		endpoint.getCacheConnections().add(this);
 		this.endpoint = endpoint;
 	}
 
