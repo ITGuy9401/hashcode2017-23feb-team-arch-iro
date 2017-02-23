@@ -42,4 +42,19 @@ public class Video implements Comparable<Video> {
 		return id.compareTo(o.getId());
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Video video = (Video) o;
+
+		return id != null ? id.equals(video.id) : video.id == null;
+
+	}
+
+	@Override
+	public int hashCode() {
+		return id != null ? id.hashCode() : 0;
+	}
 }
