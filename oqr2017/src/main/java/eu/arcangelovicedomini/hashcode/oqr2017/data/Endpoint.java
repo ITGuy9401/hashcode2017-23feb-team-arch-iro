@@ -48,10 +48,20 @@ public class Endpoint {
 		this.requests = requests;
 	}
 
+	public void addCacheConnection(Connection c) {
+		this.cacheConnections.add(c);
+	}
+
+	public void addRequest(Request r) {
+		this.requests.add(r);
+	}
+
 	@Override
 	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
 
 		Endpoint endpoint = (Endpoint) o;
 

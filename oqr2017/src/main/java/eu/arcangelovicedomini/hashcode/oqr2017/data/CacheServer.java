@@ -38,5 +38,9 @@ public class CacheServer {
 	public void setConnections(List<Connection> connection) {
 		this.connections = connection;
 	}
+	
+	public void addConnection(Connection c) {
+		this.connections.add(c);
+	}
 
 }

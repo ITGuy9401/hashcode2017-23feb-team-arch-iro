@@ -18,9 +18,9 @@ public class Connection {
 	}
 
 	public void setCacheServer(CacheServer cacheServer) {
-		cacheServer.getConnections().add(this);
+		cacheServer.addConnection(this);
 		this.cacheServer = cacheServer;
-		
+
 	}
 
 	public Endpoint getEndpoint() {
@@ -28,7 +28,7 @@ public class Connection {
 	}
 
 	public void setEndpoint(Endpoint endpoint) {
-		endpoint.getCacheConnections().add(this);
+		endpoint.addCacheConnection(this);
 		this.endpoint = endpoint;
 	}
 
